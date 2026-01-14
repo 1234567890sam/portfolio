@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="M Saad Shaikh - Web Developer | Cybersecurity Enthusiast | Digital Architect. Explore my portfolio of cutting-edge web projects.">
+  <meta name="keywords" content="web developer, cybersecurity, portfolio, full-stack developer">
+  <meta name="author" content="M Saad Shaikh">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="M Saad Shaikh - Developer Portfolio">
+  <meta property="og:description"
+    content="Ultra-modern portfolio showcasing web development and cybersecurity projects">
+  <meta property="og:type" content="website">
+
+  <title>M Saad Shaikh | Developer Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Orbitron:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/hero.css">
+  <link rel="stylesheet" href="/css/sections.css">
+</head>
+
+<body>
+  <!-- Animated Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home" data-parallax>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title glow-text">M Saad Shaikh</h1>
+        <div class="hero-subtitle">
+          <span class="typing-text" id="typing-text"></span>
+          <span class="typing-cursor"></span>
+        </div>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator"></div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <!-- Replace 'profile.jpg' with your actual image filename -->
+          <img id="profile-image" src="/uploads/profile.jpg" alt="M Saad Shaikh"
+            onerror="this.src='https://via.placeholder.com/400x400/0a0a0f/00d4ff?text=M+Saad+Shaikh'">
+        </div>
+        <div class="about-text">
+          <h2>Web Developer | Cybersecurity Enthusiast | Digital Architect</h2>
+          <p id="bio-text">Loading...</p>
+          <div class="social-links" id="social-links">
+            <!-- Social links will be loaded dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-title">
+        <h2>Skills & Expertise</h2>
+      </div>
+      <div class="skills-grid" id="skills-grid">
+        <!-- Skills will be loaded dynamically -->
+        <div class="loading">Loading skills...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <div class="container-wide">
+      <div class="section-title">
+        <h2>Featured Projects</h2>
+      </div>
+      <div class="projects-grid" id="projects-grid">
+        <!-- Projects will be loaded dynamically -->
+        <div class="loading">Loading projects...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+      </div>
+      <div class="contact-content">
+        <div style="text-align: center; padding: var(--space-2xl);">
+          <p
+            style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-xl);">
+            Let's build something amazing together!
+          </p>
+
+          <!-- Contact Buttons -->
+          <div
+            style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-2xl);">
+            <!-- Email Button -->
+            <a href="mailto:work.msaad@gmail.com" class="btn btn-primary">
+              <i class="fas fa-envelope"></i> Email Me
+            </a>
+
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/9423183735" class="btn btn-secondary">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div>
+            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-md);">Or connect with me on:</p>
+            <div class="social-links" style="justify-content: center;">
+              <!-- These will be loaded from About section -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GSAP Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <script src="/js/performance.js"></script>
+  <script src="/js/background.js"></script>
+  <script src="/js/typing-effect.js"></script>
+  <script src="/js/animations.js"></script>
+  <script src="/js/interactions.js"></script>
+  <script src="/js/api.js"></script>
+</body>
+
+</html>

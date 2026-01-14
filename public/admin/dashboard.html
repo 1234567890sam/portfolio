@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Portfolio Admin</h2>
+                <p id="admin-username">Loading...</p>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link active" data-section="projects">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#skills" class="nav-link" data-section="skills">
+                            <i class="fas fa-code"></i>
+                            <span>Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link" data-section="about">
+                            <i class="fas fa-user"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="logout-btn" onclick="adminAuth.logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Projects Section -->
+            <section id="projects-section" class="content-section active">
+                <div class="page-header">
+                    <h1>Manage Projects</h1>
+                    <p>Add, edit, or delete your portfolio projects</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">All Projects</h3>
+                        <button class="btn btn-success" onclick="window.projectManager.showAddModal()">
+                            <i class="fas fa-plus"></i> Add Project
+                        </button>
+                    </div>
+
+                    <div id="projects-list">
+                        <p>Loading projects...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills-section" class="content-section">
+                <div class="page-header">
+                    <h1>Manage Skills</h1>
+                    <p>Add, edit, or delete your skills</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">All Skills</h3>
+                        <button class="btn btn-success" onclick="window.skillManager.showAddModal()">
+                            <i class="fas fa-plus"></i> Add Skill
+                        </button>
+                    </div>
+
+                    <div id="skills-list">
+                        <p>Loading skills...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about-section" class="content-section">
+                <div class="page-header">
+                    <h1>Manage About Content</h1>
+                    <p>Update your bio and social links</p>
+                </div>
+
+                <div class="card">
+                    <form id="about-form" class="admin-form">
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" rows="6" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="github">GitHub URL</label>
+                            <input type="url" id="github" placeholder="https://github.com/username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn URL</label>
+                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="twitter">Twitter URL</label>
+                            <input type="url" id="twitter" placeholder="https://twitter.com/username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-contact">Email</label>
+                            <input type="email" id="email-contact" placeholder="your@email.com">
+                        </div>
+
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="project-modal-title">Add Project</h3>
+                <button class="modal-close" onclick="window.projectManager.closeModal()">&times;</button>
+            </div>
+            <form id="project-form" class="admin-form">
+                <input type="hidden" id="project-id">
+
+                <div class="form-group">
+                    <label for="project-title">Title</label>
+                    <input type="text" id="project-title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="project-description">Description</label>
+                    <textarea id="project-description" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="project-image">Image URL</label>
+                    <input type="text" id="project-image" placeholder="/uploads/project.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="project-tech">Tech Stack (comma-separated)</label>
+                    <input type="text" id="project-tech" placeholder="React, Node.js, MongoDB">
+                </div>
+
+                <div class="form-group">
+                    <label for="project-url">Project URL</label>
+                    <input type="url" id="project-url" placeholder="https://project.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="project-github">GitHub URL</label>
+                    <input type="url" id="project-github" placeholder="https://github.com/user/repo">
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i> Save Project
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Skill Modal -->
+    <div id="skill-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="skill-modal-title">Add Skill</h3>
+                <button class="modal-close" onclick="window.skillManager.closeModal()">&times;</button>
+            </div>
+            <form id="skill-form" class="admin-form">
+                <input type="hidden" id="skill-id">
+
+                <div class="form-group">
+                    <label for="skill-name">Skill Name</label>
+                    <input type="text" id="skill-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="skill-category">Category</label>
+                    <select id="skill-category" required>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                        <option value="Database">Database</option>
+                        <option value="DevOps">DevOps</option>
+                        <option value="Tools">Tools</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="skill-proficiency">Proficiency (0-100)</label>
+                    <input type="number" id="skill-proficiency" min="0" max="100" value="50" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="skill-icon">Icon (HTML)</label>
+                    <input type="text" id="skill-icon" placeholder='<i class="fas fa-code"></i>'>
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i> Save Skill
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/admin/js/auth.js"></script>
+    <script src="/admin/js/projects.js"></script>
+    <script src="/admin/js/skills.js"></script>
+    <script src="/admin/js/about.js"></script>
+    <script src="/admin/js/dashboard.js"></script>
+</body>
+
+</html>
