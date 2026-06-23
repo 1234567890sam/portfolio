@@ -4,28 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="M Saad Shaikh - Web Developer | Cybersecurity Enthusiast | Digital Architect. Explore my portfolio of cutting-edge web projects.">
-  <meta name="keywords" content="web developer, cybersecurity, portfolio, full-stack developer">
+  <meta name="description" content="M Saad Shaikh – Full Stack Developer & Cybersecurity Enthusiast. Premium developer portfolio showcasing cutting-edge web development and security projects.">
+  <meta name="keywords" content="Saad Shaikh, Full Stack Developer, Cybersecurity, Portfolio, Web Developer, React, Node.js">
   <meta name="author" content="M Saad Shaikh">
+  <meta name="theme-color" content="#050816">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="M Saad Shaikh - Developer Portfolio">
-  <meta property="og:description"
-    content="Ultra-modern portfolio showcasing web development and cybersecurity projects">
+  <meta property="og:title" content="M Saad Shaikh | Full Stack Developer">
+  <meta property="og:description" content="Full Stack Developer & Cybersecurity Enthusiast crafting premium digital experiences.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="/uploads/profile.jpg">
 
-  <title>M Saad Shaikh | Developer Portfolio</title>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="M Saad Shaikh | Full Stack Developer">
+
+  <title>M Saad Shaikh | Full Stack Developer</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Orbitron:wght@400;500;700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/variables.css">
@@ -35,125 +37,777 @@
 </head>
 
 <body>
-  <!-- Animated Background -->
-  <canvas id="bg-canvas"></canvas>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home" data-parallax>
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title glow-text">M Saad Shaikh</h1>
-        <div class="hero-subtitle">
-          <span class="typing-text" id="typing-text"></span>
-          <span class="typing-cursor"></span>
-        </div>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-        </div>
+  <!-- ── FLOATING NAVBAR ── -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <span class="nav-logo" id="nav-logo-btn" role="button" aria-label="Go to top">M. SAAD SHAIKH</span>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <span class="nav-available" aria-label="Available for freelance">Available for Freelance</span>
+        <a href="#contact" class="btn btn-primary" style="padding: 8px 20px; font-size: 13px; border-radius: 10px;">Hire Me</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-    <div class="scroll-indicator"></div>
-  </section>
+  </nav>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="section-title">
-        <h2>About Me</h2>
-      </div>
-      <div class="about-content">
-        <div class="about-image">
-          <!-- Replace 'profile.jpg' with your actual image filename -->
-          <img id="profile-image" src="/uploads/profile.jpg" alt="M Saad Shaikh"
-            onerror="this.src='https://via.placeholder.com/400x400/0a0a0f/00d4ff?text=M+Saad+Shaikh'">
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#home" class="mobile-nav-link">Home</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#skills" class="mobile-nav-link">Skills</a>
+    <a href="#projects" class="mobile-nav-link">Projects</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       HERO SECTION
+       ══════════════════════════════════════════════ -->
+  <section id="home" aria-label="Hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <!-- Ambient orbs -->
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <!-- LEFT -->
+      <div class="hero-left">
+        <div class="hero-badge" aria-label="Availability status">
+          <span class="badge-dot" aria-hidden="true"></span>
+          Available for Freelance Projects
         </div>
-        <div class="about-text">
-          <h2>Web Developer | Cybersecurity Enthusiast | Digital Architect</h2>
-          <p id="bio-text">Loading...</p>
-          <div class="social-links" id="social-links">
-            <!-- Social links will be loaded dynamically -->
+
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">
+          M SAAD
+          <span class="name-highlight">SHAIKH.</span>
+        </h1>
+
+        <div class="hero-roles">
+          <span id="typing-text" class="typing-text" aria-live="polite"></span>
+          <span class="typing-cursor" aria-hidden="true"></span>
+        </div>
+
+        <p class="hero-description">
+          Building premium digital experiences at the intersection of full-stack development
+          and cybersecurity. Crafting scalable, secure, and beautiful applications.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary" id="hero-view-projects-btn">
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            View Projects
+          </a>
+          <a href="#contact" class="btn btn-ghost" id="hero-contact-btn">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            Contact Me
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <span class="hero-socials-label">Find me on</span>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+             class="hero-social-icon" id="hero-social-github" aria-label="GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+             class="hero-social-icon" id="hero-social-linkedin" aria-label="LinkedIn">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:work.msaad@gmail.com"
+             class="hero-social-icon" id="hero-social-email" aria-label="Email">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
+          <a href="https://wa.me/9423183735" target="_blank" rel="noopener noreferrer"
+             class="hero-social-icon" id="hero-social-whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT - Profile Card -->
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-profile-wrapper">
+          <!-- Decorative rings -->
+          <div class="hero-ring hero-ring-1"></div>
+          <div class="hero-ring hero-ring-2"></div>
+
+          <!-- Floating profile card -->
+          <div class="hero-profile-card glass-card">
+            <div class="profile-card-top">
+              <div class="profile-avatar-wrap">
+                <img src="/uploads/profile.jpg" alt="M Saad Shaikh"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="profile-avatar-initials" style="display:none">MS</div>
+              </div>
+            </div>
+            <div class="profile-card-body">
+              <div class="profile-name">M SAAD SHAIKH</div>
+              <div class="profile-title">Full Stack Developer</div>
+              <div class="profile-stats">
+                <div>
+                  <div class="profile-stat-num">15+</div>
+                  <div class="profile-stat-label">Projects</div>
+                </div>
+                <div>
+                  <div class="profile-stat-num">2+</div>
+                  <div class="profile-stat-label">Years</div>
+                </div>
+                <div>
+                  <div class="profile-stat-num">10+</div>
+                  <div class="profile-stat-label">Skills</div>
+                </div>
+              </div>
+              <div class="profile-status">
+                Available for work
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini floating cards -->
+          <div class="hero-mini-card hero-mini-card-1">
+            <div class="mini-card-icon">⚡</div>
+            <div class="mini-card-value">Full Stack</div>
+            <div class="mini-card-label">Developer</div>
+          </div>
+          <div class="hero-mini-card hero-mini-card-2">
+            <div class="mini-card-icon">🔒</div>
+            <div class="mini-card-value">Security</div>
+            <div class="mini-card-label">Enthusiast</div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section class="skills" id="skills">
-    <div class="container">
-      <div class="section-title">
-        <h2>Skills & Expertise</h2>
-      </div>
-      <div class="skills-grid" id="skills-grid">
-        <!-- Skills will be loaded dynamically -->
-        <div class="loading">Loading skills...</div>
-      </div>
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" id="hero-scroll-indicator" role="button" aria-label="Scroll down">
+      <span>Scroll</span>
+      <div class="scroll-line" aria-hidden="true"></div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section class="projects" id="projects">
-    <div class="container-wide">
-      <div class="section-title">
-        <h2>Featured Projects</h2>
-      </div>
-      <div class="projects-grid" id="projects-grid">
-        <!-- Projects will be loaded dynamically -->
-        <div class="loading">Loading projects...</div>
-      </div>
-    </div>
-  </section>
+  <!-- ══════════════════════════════════════════════
+       ABOUT / BENTO SECTION
+       ══════════════════════════════════════════════ -->
+  <section id="about" aria-label="About Me">
+    <div class="orb orb-1" style="top: auto; bottom: -200px; left: -100px;" aria-hidden="true"></div>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
     <div class="container">
-      <div class="section-title">
-        <h2>Get In Touch</h2>
+      <div class="section-header reveal">
+        <span class="section-eyebrow">About Me</span>
+        <h2 class="section-title">The person behind <span class="gradient-text">the code</span></h2>
+        <p class="section-subtitle">Passionate developer blending creativity with technical expertise to build impactful solutions.</p>
       </div>
-      <div class="contact-content">
-        <div style="text-align: center; padding: var(--space-2xl);">
-          <p
-            style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-xl);">
-            Let's build something amazing together!
+
+      <!-- BENTO GRID -->
+      <div class="bento-grid">
+
+        <!-- BIO CARD (large) -->
+        <div class="bento-card bento-bio">
+          <div class="bio-image">
+            <img src="/uploads/profile.jpg" alt="M Saad Shaikh"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                 id="about-profile-img">
+            <div class="bio-initials" style="display:none">MS</div>
+          </div>
+          <div class="bento-card-eyebrow">
+            <i class="fas fa-user" aria-hidden="true"></i> Bio
+          </div>
+          <h3>Crafting digital<br>experiences.</h3>
+          <p class="bio-text" id="bio-text">
+            I'm a passionate Full Stack Developer and Cybersecurity Enthusiast
+            from India. I love building clean, performant web applications and
+            exploring the intersection of development and security.
           </p>
-
-          <!-- Contact Buttons -->
-          <div
-            style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-2xl);">
-            <!-- Email Button -->
-            <a href="mailto:work.msaad@gmail.com" class="btn btn-primary">
-              <i class="fas fa-envelope"></i> Email Me
-            </a>
-
-            <!-- WhatsApp Button -->
-            <a href="https://wa.me/9423183735" class="btn btn-secondary">
-              <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
+          <div class="bio-tags">
+            <span class="bio-tag bio-tag-cyan">
+              <i class="fas fa-code" aria-hidden="true"></i> Full Stack Dev
+            </span>
+            <span class="bio-tag bio-tag-purple">
+              <i class="fas fa-shield-alt" aria-hidden="true"></i> Cybersecurity
+            </span>
+            <span class="bio-tag bio-tag-green">
+              <i class="fas fa-leaf" aria-hidden="true"></i> Open Source
+            </span>
           </div>
+          <div id="about-social-links"></div>
+          <a href="#" id="about-resume-btn" class="btn btn-ghost" style="margin-top: var(--space-4); display: none; align-items: center; gap: 8px; width: fit-content; padding: 8px 16px; font-size: 13px; border-radius: 8px;" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-file-pdf"></i> View Resume
+          </a>
+        </div>
 
-          <!-- Social Links -->
-          <div>
-            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-md);">Or connect with me on:</p>
-            <div class="social-links" style="justify-content: center;">
-              <!-- These will be loaded from About section -->
+        <!-- EXPERIENCE CARD -->
+        <div class="bento-card bento-exp">
+          <div class="bento-card-eyebrow">
+            <i class="fas fa-briefcase" aria-hidden="true"></i> Experience
+          </div>
+          <div class="exp-number" id="about-experience-years">2+</div>
+          <div class="exp-label" id="about-experience-label">Years of building<br>real-world projects</div>
+        </div>
+
+        <!-- EDUCATION CARD -->
+        <div class="bento-card bento-edu">
+          <div class="bento-card-eyebrow">
+            <i class="fas fa-graduation-cap" aria-hidden="true"></i> Education
+          </div>
+          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4);">Academic Path</h3>
+          <ul class="edu-list" id="about-education-list">
+            <!-- Loaded dynamically by api.js -->
+            <li class="edu-item">
+              <div class="edu-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+              <div>
+                <div class="edu-name">Loading Education...</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- SKILLS BENTO -->
+        <div class="bento-card bento-skills">
+          <div class="bento-card-eyebrow">
+            <i class="fas fa-layer-group" aria-hidden="true"></i> Core Skills
+          </div>
+          <div id="bento-skills-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5);">
+            <!-- Loaded dynamically by api.js -->
+          </div>
+        </div>
+
+        <!-- CERTIFICATIONS CARD -->
+        <div class="bento-card bento-certs">
+          <div class="bento-card-eyebrow">
+            <i class="fas fa-certificate" aria-hidden="true"></i> Certifications
+          </div>
+          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4);">Credentials</h3>
+          <div id="about-certs-list" style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <!-- Loaded dynamically by api.js -->
+          </div>
+        </div>
+
+        <!-- STATS CARDS -->
+        <div class="bento-card bento-stats">
+          <div class="bento-card-eyebrow" style="font-size: 10px;">Projects</div>
+          <div class="stat-value" id="stat-projects">15+</div>
+          <div class="stat-label">Completed</div>
+        </div>
+
+        <!-- TECH USED -->
+        <div class="bento-card bento-tech">
+          <div class="bento-card-eyebrow">
+            <i class="fas fa-microchip" aria-hidden="true"></i> Technologies
+          </div>
+          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-4);">Tech I Work With</h3>
+          <div class="skill-pills" id="about-tech-pills">
+            <!-- Loaded dynamically by api.js -->
+          </div>
+        </div>
+
+      </div><!-- /bento-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SKILLS SECTION
+       ══════════════════════════════════════════════ -->
+  <section id="skills" aria-label="Skills">
+    <div class="orb orb-2" style="top: -200px; right: -100px;" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Expertise</span>
+        <h2 class="section-title">Skills & <span class="gradient-text">Technologies</span></h2>
+        <p class="section-subtitle">A curated overview of the tools and technologies I use to build exceptional products.</p>
+      </div>
+
+      <div class="skills-categories" id="skills-grid">
+
+        <div class="skill-category-card">
+          <div class="skill-cat-icon">🎨</div>
+          <div class="skill-cat-name">Frontend</div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-item-name">React / Next.js</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">TypeScript</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">CSS / Tailwind</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">JavaScript</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
             </div>
           </div>
         </div>
+
+        <div class="skill-category-card">
+          <div class="skill-cat-icon">⚙️</div>
+          <div class="skill-cat-name">Backend</div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-item-name">Node.js / Express</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">Python / Django</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">REST APIs</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">GraphQL</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="65"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-cat-icon">🗄️</div>
+          <div class="skill-cat-name">Database</div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-item-name">MongoDB</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">PostgreSQL</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">MySQL</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">Redis</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="60"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category-card visible">
+          <div class="skill-cat-icon">☁️</div>
+          <div class="skill-cat-name">Cloud & DevOps</div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-item-name">AWS</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">Docker</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">Git / GitHub</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">Linux</span>
+              <div class="skill-bar"><div class="skill-bar-fill animated" style="--w:82%" data-width="82"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-cat-icon">🔒</div>
+          <div class="skill-cat-name">Cybersecurity</div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-item-name">Penetration Testing</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="72"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">Burp Suite</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">OWASP Top 10</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-item-name">Network Security</span>
+              <div class="skill-bar"><div class="skill-bar-fill" data-width="68"></div></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- GSAP Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- ══════════════════════════════════════════════
+       PROJECTS SECTION
+       ══════════════════════════════════════════════ -->
+  <section id="projects" aria-label="Projects">
+    <div class="container-wide">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Portfolio</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="section-subtitle">A selection of projects that showcase my technical range and design sensibility.</p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="projects-stats">
+        <div class="project-stat">
+          <span class="project-stat-number" id="stat-total-projects">15+</span>
+          <span class="project-stat-label">Total Projects</span>
+        </div>
+        <div class="project-stat">
+          <span class="project-stat-number">20+</span>
+          <span class="project-stat-label">Technologies</span>
+        </div>
+        <div class="project-stat">
+          <span class="project-stat-number">5+</span>
+          <span class="project-stat-label">Happy Clients</span>
+        </div>
+        <div class="project-stat">
+          <span class="project-stat-number">2+</span>
+          <span class="project-stat-label">Years Learning</span>
+        </div>
+      </div>
+
+      <!-- Projects Bento Grid -->
+      <div class="projects-bento" id="projects-grid">
+        <!-- Loaded dynamically by api.js -->
+        <!-- Fallback static projects -->
+        <article class="project-card project-card-featured">
+          <div class="project-image-wrap">
+            <div class="project-image-placeholder">🚀</div>
+            <div class="project-overlay"></div>
+            <div class="project-actions">
+              <a href="#" class="project-action-btn" title="Live Demo" aria-label="Live Demo">
+                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="project-action-btn" title="View Code" aria-label="View Code on GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-featured-badge">⭐ Featured Project</div>
+            <h3 class="project-title">Developer Portfolio</h3>
+            <p class="project-description">
+              A premium futuristic developer portfolio built with vanilla HTML, CSS, and JavaScript.
+              Features glassmorphism UI, bento grid layouts, scroll animations, and a Node.js backend
+              with MongoDB for dynamic content management.
+            </p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">MongoDB</span>
+              <span class="tech-badge">Express</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="View live demo">
+                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo
+              </a>
+              <a href="#" class="project-link" aria-label="View on GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card project-card-sm-1">
+          <div class="project-image-wrap">
+            <div class="project-image-placeholder">🔒</div>
+            <div class="project-overlay"></div>
+            <div class="project-actions">
+              <a href="#" class="project-action-btn" aria-label="Live Demo">
+                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="project-action-btn" aria-label="GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">SecureVault</h3>
+            <p class="project-description">End-to-end encrypted password manager with biometric authentication and zero-knowledge architecture.</p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">AES-256</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Demo</a>
+              <a href="#" class="project-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card project-card-sm-2">
+          <div class="project-image-wrap">
+            <div class="project-image-placeholder">🌐</div>
+            <div class="project-overlay"></div>
+            <div class="project-actions">
+              <a href="#" class="project-action-btn" aria-label="Live Demo">
+                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="project-action-btn" aria-label="GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">NetScan Pro</h3>
+            <p class="project-description">Network vulnerability scanner with real-time reporting and CVE database integration.</p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Nmap</span>
+              <span class="tech-badge">Flask</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Demo</a>
+              <a href="#" class="project-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card project-card-sm-3">
+          <div class="project-image-wrap">
+            <div class="project-image-placeholder">🛒</div>
+            <div class="project-overlay"></div>
+            <div class="project-actions">
+              <a href="#" class="project-action-btn" aria-label="Live Demo">
+                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="project-action-btn" aria-label="GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">ShopFlow</h3>
+            <p class="project-description">Full-featured e-commerce platform with payment integration and inventory management.</p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">Next.js</span>
+              <span class="tech-badge">Stripe</span>
+              <span class="tech-badge">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Demo</a>
+              <a href="#" class="project-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card project-card-sm-4">
+          <div class="project-image-wrap">
+            <div class="project-image-placeholder">🤖</div>
+            <div class="project-overlay"></div>
+            <div class="project-actions">
+              <a href="#" class="project-action-btn" aria-label="Live Demo">
+                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="project-action-btn" aria-label="GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">AI ChatBot</h3>
+            <p class="project-description">Intelligent conversational AI assistant with context retention and multi-language support.</p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">OpenAI API</span>
+              <span class="tech-badge">FastAPI</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Demo</a>
+              <a href="#" class="project-link" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       CONTACT SECTION
+       ══════════════════════════════════════════════ -->
+  <section id="contact" aria-label="Contact">
+    <div class="orb orb-1" style="bottom: -150px; right: -50px; top: auto; left: auto;" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Contact</span>
+        <h2 class="section-title">Let's <span class="gradient-text">work together</span></h2>
+        <p class="section-subtitle">Have a project in mind or want to collaborate? I'm always open to new opportunities.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- LEFT -->
+        <div class="contact-left">
+          <h3>Ready to build<br>something <span class="gradient-text">amazing?</span></h3>
+          <p>I'm currently available for freelance projects, full-time roles, and exciting collaborations. Let's create something exceptional together.</p>
+
+          <div class="contact-channels">
+            <a href="mailto:work.msaad@gmail.com" class="contact-channel" id="contact-email-btn" aria-label="Send email">
+              <div class="contact-channel-icon icon-email">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+              </div>
+              <div class="contact-channel-info">
+                <span class="contact-channel-label">Email</span>
+                <span class="contact-channel-value">work.msaad@gmail.com</span>
+              </div>
+              <i class="fas fa-arrow-right contact-channel-arrow" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://wa.me/9423183735" target="_blank" rel="noopener noreferrer"
+               class="contact-channel" id="contact-whatsapp-btn" aria-label="Message on WhatsApp">
+              <div class="contact-channel-icon icon-whatsapp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              </div>
+              <div class="contact-channel-info">
+                <span class="contact-channel-label">WhatsApp</span>
+                <span class="contact-channel-value">+91 9423 183 735</span>
+              </div>
+              <i class="fas fa-arrow-right contact-channel-arrow" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/msaadshaikh" target="_blank" rel="noopener noreferrer"
+               class="contact-channel" id="contact-linkedin-btn" aria-label="Connect on LinkedIn">
+              <div class="contact-channel-icon icon-linkedin">
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+              </div>
+              <div class="contact-channel-info">
+                <span class="contact-channel-label">LinkedIn</span>
+                <span class="contact-channel-value">linkedin.com/in/msaadshaikh</span>
+              </div>
+              <i class="fas fa-arrow-right contact-channel-arrow" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://github.com/msaadshaikh" target="_blank" rel="noopener noreferrer"
+               class="contact-channel" id="contact-github-btn" aria-label="View GitHub profile">
+              <div class="contact-channel-icon icon-github">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </div>
+              <div class="contact-channel-info">
+                <span class="contact-channel-label">GitHub</span>
+                <span class="contact-channel-value">github.com/msaadshaikh</span>
+              </div>
+              <i class="fas fa-arrow-right contact-channel-arrow" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT - Panel -->
+        <div class="contact-panel">
+          <h4>Connect with me</h4>
+          <p>Follow my journey and stay updated with my latest projects and insights.</p>
+
+          <div class="contact-socials" id="contact-social-grid">
+            <a href="https://github.com/msaadshaikh" target="_blank" rel="noopener noreferrer"
+               class="contact-social-btn btn-gh" id="social-github-btn" aria-label="GitHub">
+              <div class="contact-social-icon" style="background: rgba(255,255,255,0.06);">
+                <i class="fab fa-github" style="font-size: 1.1rem;" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div class="contact-social-name">GitHub</div>
+                <div class="contact-social-handle">@msaadshaikh</div>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/in/msaadshaikh" target="_blank" rel="noopener noreferrer"
+               class="contact-social-btn btn-li" id="social-linkedin-btn" aria-label="LinkedIn">
+              <div class="contact-social-icon" style="background: rgba(10,102,194,0.15); color: #0a66c2;">
+                <i class="fab fa-linkedin" style="font-size: 1.1rem;" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div class="contact-social-name">LinkedIn</div>
+                <div class="contact-social-handle">M Saad Shaikh</div>
+              </div>
+            </a>
+
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+               class="contact-social-btn btn-tw" id="social-twitter-btn" aria-label="Twitter">
+              <div class="contact-social-icon" style="background: rgba(29,161,242,0.15); color: #1da1f2;">
+                <i class="fab fa-twitter" style="font-size: 1.1rem;" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div class="contact-social-name">Twitter</div>
+                <div class="contact-social-handle">@msaadshaikh</div>
+              </div>
+            </a>
+
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+               class="contact-social-btn btn-ig" id="social-instagram-btn" aria-label="Instagram">
+              <div class="contact-social-icon" style="background: rgba(225,48,108,0.12); color: #e1306c;">
+                <i class="fab fa-instagram" style="font-size: 1.1rem;" aria-hidden="true"></i>
+              </div>
+              <div>
+                <div class="contact-social-name">Instagram</div>
+                <div class="contact-social-handle">@msaadshaikh</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="contact-availability">
+            <div class="availability-header">
+              <div class="availability-dot" aria-hidden="true"></div>
+              Available for Work
+            </div>
+            <p class="availability-text">
+              Currently open to freelance projects and full-time opportunities.
+              Typical response time: within 24 hours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">M. SAAD SHAIKH</span>
+        <p class="footer-copy">
+          © 2026 M Saad Shaikh · Crafted with <span style="color: #e25555;">♥</span> and coffee
+        </p>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════
+       SCRIPTS
+       ══════════════════════════════════════════════ -->
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <!-- Custom Scripts -->
-  <script src="/js/performance.js"></script>
-  <script src="/js/background.js"></script>
-  <script src="/js/typing-effect.js"></script>
-  <script src="/js/animations.js"></script>
-  <script src="/js/interactions.js"></script>
+  <script src="/js/main.js"></script>
   <script src="/js/api.js"></script>
 </body>
 

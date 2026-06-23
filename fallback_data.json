@@ -1,0 +1,161 @@
+{
+    "about": {
+        "bio": "Welcome to my portfolio! I'm M SAAD SHAIKH, a passionate developer creating amazing digital experiences.",
+        "profileImage": "/uploads/profile.jpg",
+        "resumeUrl": "",
+        "experience": {
+            "years": "3+",
+            "label": "Years of building real-world projects"
+        },
+        "stats": {
+            "completed": "6+"
+        },
+        "socialLinks": {
+            "github": "https://github.com",
+            "linkedin": "https://linkedin.com",
+            "twitter": "",
+            "instagram": "",
+            "email": "msaadshaikh@example.com",
+            "whatsapp": ""
+        },
+        "education": [
+            {
+                "degree": "Bachelor of Science in Computer Science",
+                "institution": "University",
+                "year": "2022 - 2026",
+                "icon": "fas fa-graduation-cap"
+            }
+        ],
+        "certifications": [
+            {
+                "name": "Full Stack Web Development Certificate",
+                "issuer": "Udemy",
+                "icon": "fas fa-certificate"
+            }
+        ]
+    },
+    "skills": [
+        {
+            "_id": "fallback-skill-1",
+            "name": "HTML5/CSS3",
+            "category": "Frontend",
+            "proficiency": 95,
+            "icon": "🎨",
+            "order": 1
+        },
+        {
+            "_id": "fallback-skill-2",
+            "name": "JavaScript",
+            "category": "Frontend",
+            "proficiency": 90,
+            "icon": "🎨",
+            "order": 2
+        },
+        {
+            "_id": "fallback-skill-3",
+            "name": "React.js",
+            "category": "Frontend",
+            "proficiency": 85,
+            "icon": "🎨",
+            "order": 3
+        },
+        {
+            "_id": "fallback-skill-4",
+            "name": "Node.js",
+            "category": "Backend",
+            "proficiency": 88,
+            "icon": "⚙️",
+            "order": 1
+        },
+        {
+            "_id": "fallback-skill-5",
+            "name": "Express.js",
+            "category": "Backend",
+            "proficiency": 85,
+            "icon": "⚙️",
+            "order": 2
+        },
+        {
+            "_id": "fallback-skill-6",
+            "name": "MongoDB",
+            "category": "Database",
+            "proficiency": 80,
+            "icon": "🗄️",
+            "order": 1
+        },
+        {
+            "_id": "fallback-skill-7",
+            "name": "PostgreSQL",
+            "category": "Database",
+            "proficiency": 75,
+            "icon": "🗄️",
+            "order": 2
+        },
+        {
+            "_id": "fallback-skill-8",
+            "name": "Docker",
+            "category": "DevOps",
+            "proficiency": 70,
+            "icon": "🐳",
+            "order": 1
+        },
+        {
+            "_id": "fallback-skill-9",
+            "name": "Git & GitHub",
+            "category": "Tools",
+            "proficiency": 90,
+            "icon": "🛠️",
+            "order": 1
+        }
+    ],
+    "projects": [
+        {
+            "_id": "fallback-proj-1",
+            "title": "Premium E-Commerce Experience",
+            "description": "A dark futuristic storefront with Stripe integrations, real-time inventory management, and custom glassmorphic aesthetics.",
+            "image": "/uploads/default-project.jpg",
+            "techStack": [
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Stripe"
+            ],
+            "projectUrl": "https://github.com",
+            "githubUrl": "https://github.com",
+            "featured": true,
+            "order": 1
+        },
+        {
+            "_id": "fallback-proj-2",
+            "title": "Futuristic Portfolio Platform",
+            "description": "An ultra-premium, interactive developer portfolio featuring GPU-accelerated cursor effects, bento grids, and high-performance layout rendering.",
+            "image": "/uploads/default-project.jpg",
+            "techStack": [
+                "HTML5",
+                "Vanilla CSS",
+                "JavaScript",
+                "GSAP"
+            ],
+            "projectUrl": "https://github.com",
+            "githubUrl": "https://github.com",
+            "featured": false,
+            "order": 2
+        },
+        {
+            "_id": "fallback-proj-3",
+            "title": "AI Prompt Engineering Tool",
+            "description": "A dashboard application for testing and evaluating LLM outputs with semantic caching and robust security headers.",
+            "image": "/uploads/default-project.jpg",
+            "techStack": [
+                "Node.js",
+                "Express",
+                "OpenAI API",
+                "TailwindCSS"
+            ],
+            "projectUrl": "https://github.com",
+            "githubUrl": "https://github.com",
+            "featured": false,
+            "order": 3
+        }
+    ]
+}

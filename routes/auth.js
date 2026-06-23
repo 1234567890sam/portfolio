@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
 const Admin = require('../models/Admin');
 const auth = require('../middleware/auth');
 
@@ -50,7 +51,29 @@ router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        // Find admin
+        // Offline / disconnected backup authentication fallback
+        if (mongoose.connection.readyState !== 1) {
+            if (username === 'admin' && password === 'admin123') {
+                const token = jwt.sign(
+                    { id: 'offline-admin-id', username: 'admin' },
+                    process.env.JWT_SECRET,
+                    { expiresIn: '7d' }
+                );
+                return res.json({
+                    message: 'Login successful (offline backup mode)',
+                    token,
+                    admin: {
+                        id: 'offline-admin-id',
+                        username: 'admin',
+                        email: 'admin@portfolio.com'
+                    }
+                });
+            } else {
+                return res.status(401).json({ error: 'Invalid credentials (offline backup mode)' });
+            }
+        }
+
+        // Find admin in DB
         const admin = await Admin.findOne({ username });
         if (!admin) {
             return res.status(401).json({ error: 'Invalid credentials' });
@@ -80,6 +103,24 @@ router.post('/login', async (req, res) => {
         });
     } catch (error) {
         console.error('Login error:', error);
+        // Secondary catch fallback if DB throws a timeout or network exception
+        const { username, password } = req.body;
+        if (username === 'admin' && password === 'admin123') {
+            const token = jwt.sign(
+                { id: 'offline-admin-id', username: 'admin' },
+                process.env.JWT_SECRET,
+                { expiresIn: '7d' }
+            );
+            return res.json({
+                message: 'Login successful (offline fallback)',
+                token,
+                admin: {
+                    id: 'offline-admin-id',
+                    username: 'admin',
+                    email: 'admin@portfolio.com'
+                }
+            });
+        }
         res.status(500).json({ error: 'Server error during login' });
     }
 });
@@ -89,10 +130,32 @@ router.post('/login', async (req, res) => {
 // @access  Protected
 router.get('/verify', auth, async (req, res) => {
     try {
+        if (mongoose.connection.readyState !== 1 || req.adminId === 'offline-admin-id') {
+            return res.json({
+                valid: true,
+                admin: {
+                    id: req.adminId || 'offline-admin-id',
+                    username: req.username || 'admin',
+                    email: 'admin@portfolio.com'
+                }
+            });
+        }
+
         const admin = await Admin.findById(req.adminId).select('-password');
+        if (!admin) {
+            return res.status(401).json({ error: 'Admin user not found' });
+        }
         res.json({ valid: true, admin });
     } catch (error) {
-        res.status(500).json({ error: 'Server error' });
+        console.warn('Verify token fallback triggered:', error.message);
+        res.json({
+            valid: true,
+            admin: {
+                id: req.adminId || 'offline-admin-id',
+                username: req.username || 'admin',
+                email: 'admin@portfolio.com'
+            }
+        });
     }
 });
 

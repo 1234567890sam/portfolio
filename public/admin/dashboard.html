@@ -107,38 +107,132 @@
             <section id="about-section" class="content-section">
                 <div class="page-header">
                     <h1>Manage About Content</h1>
-                    <p>Update your bio and social links</p>
+                    <p>Update your bio, social links, experience, education, and credentials</p>
                 </div>
 
                 <div class="card">
                     <form id="about-form" class="admin-form">
-                        <div class="form-group">
-                            <label for="bio">Bio</label>
-                            <textarea id="bio" rows="6" required></textarea>
+                        <h3 class="card-title" style="margin-bottom: var(--space-md); border-bottom: 1px solid var(--glass-border); padding-bottom: var(--space-xs); font-size: 1.1rem; color: var(--color-neon-blue);">General & Media</h3>
+                        
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="profile-image">Profile Image URL</label>
+                                <input type="text" id="profile-image" placeholder="/uploads/profile.jpg">
+                                <div class="upload-container">
+                                    <div class="upload-preview-wrapper" id="profile-image-preview-wrap">
+                                        <img src="/uploads/profile.jpg" id="profile-image-preview" alt="Profile Preview" onerror="this.src='https://placehold.co/100?text=Profile'">
+                                    </div>
+                                    <div class="upload-zone" id="profile-upload-zone">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <p>Click or drag image to upload</p>
+                                        <input type="file" id="profile-upload-file" accept="image/*" style="display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="resume-url">Resume File URL</label>
+                                <input type="text" id="resume-url" placeholder="/uploads/resume.pdf">
+                                <div class="upload-container">
+                                    <div class="upload-preview-wrapper" id="resume-preview-wrap">
+                                        <i class="fas fa-file-pdf placeholder-icon"></i>
+                                    </div>
+                                    <div class="upload-zone" id="resume-upload-zone">
+                                        <i class="fas fa-file-upload"></i>
+                                        <p>Click or drag file to upload</p>
+                                        <input type="file" id="resume-upload-file" accept=".pdf,.doc,.docx,image/*" style="display: none;">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="github">GitHub URL</label>
-                            <input type="url" id="github" placeholder="https://github.com/username">
+                            <label for="bio">Bio Description</label>
+                            <textarea id="bio" rows="4" required></textarea>
                         </div>
 
-                        <div class="form-group">
-                            <label for="linkedin">LinkedIn URL</label>
-                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/username">
+                        <h3 class="card-title" style="margin-top: var(--space-lg); margin-bottom: var(--space-md); border-bottom: 1px solid var(--glass-border); padding-bottom: var(--space-xs); font-size: 1.1rem; color: var(--color-neon-blue);">Stats & Experience</h3>
+                        
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="exp-years">Experience Years (e.g. "2+")</label>
+                                <input type="text" id="exp-years" placeholder="2+">
+                            </div>
+                            <div class="form-group">
+                                <label for="exp-label">Experience Label</label>
+                                <input type="text" id="exp-label" placeholder="Years of building real-world projects">
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="twitter">Twitter URL</label>
-                            <input type="url" id="twitter" placeholder="https://twitter.com/username">
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="stats-completed">Projects Completed (e.g. "15+")</label>
+                                <input type="text" id="stats-completed" placeholder="15+">
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="email-contact">Email</label>
-                            <input type="email" id="email-contact" placeholder="your@email.com">
+                        <h3 class="card-title" style="margin-top: var(--space-lg); margin-bottom: var(--space-md); border-bottom: 1px solid var(--glass-border); padding-bottom: var(--space-xs); font-size: 1.1rem; color: var(--color-neon-blue);">Social Links</h3>
+                        
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="github">GitHub URL</label>
+                                <input type="url" id="github" placeholder="https://github.com/username">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="linkedin">LinkedIn URL</label>
+                                <input type="url" id="linkedin" placeholder="https://linkedin.com/in/username">
+                            </div>
                         </div>
 
-                        <button type="submit" class="btn btn-success">
-                            <i class="fas fa-save"></i> Save Changes
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="twitter">Twitter URL</label>
+                                <input type="url" id="twitter" placeholder="https://twitter.com/username">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="instagram">Instagram URL</label>
+                                <input type="url" id="instagram" placeholder="https://instagram.com/username">
+                            </div>
+                        </div>
+
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="email-contact">Email Address</label>
+                                <input type="email" id="email-contact" placeholder="your@email.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="whatsapp">WhatsApp Number (e.g. "+919423183735")</label>
+                                <input type="text" id="whatsapp" placeholder="919423183735">
+                            </div>
+                        </div>
+
+                        <h3 class="card-title" style="margin-top: var(--space-lg); margin-bottom: var(--space-md); border-bottom: 1px solid var(--glass-border); padding-bottom: var(--space-xs); display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; color: var(--color-neon-blue);">
+                            <span>Education Journey</span>
+                            <button type="button" class="btn btn-success" style="padding: 6px 14px; font-size: var(--font-size-sm);" onclick="window.aboutManager.showEduModal(event)">
+                                <i class="fas fa-plus"></i> Add Item
+                            </button>
+                        </h3>
+                        <div id="education-list" class="dynamic-list">
+                            <!-- Injected dynamically -->
+                            <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm);">No education items added yet.</p>
+                        </div>
+
+                        <h3 class="card-title" style="margin-top: var(--space-lg); margin-bottom: var(--space-md); border-bottom: 1px solid var(--glass-border); padding-bottom: var(--space-xs); display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; color: var(--color-neon-blue);">
+                            <span>Certifications & Credentials</span>
+                            <button type="button" class="btn btn-success" style="padding: 6px 14px; font-size: var(--font-size-sm);" onclick="window.aboutManager.showCertModal(event)">
+                                <i class="fas fa-plus"></i> Add Item
+                            </button>
+                        </h3>
+                        <div id="certifications-list" class="dynamic-list">
+                            <!-- Injected dynamically -->
+                            <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm);">No certifications added yet.</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-success" style="margin-top: var(--space-xl); width: auto; align-self: flex-start; padding: 12px 24px;">
+                            <i class="fas fa-save"></i> Save All Changes
                         </button>
                     </form>
                 </div>
@@ -236,6 +330,94 @@
             </form>
         </div>
     </div>
+
+    <!-- Education Modal -->
+    <div id="education-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="education-modal-title">Add Education Item</h3>
+                <button class="modal-close" onclick="window.aboutManager.closeEduModal()">&times;</button>
+            </div>
+            <form id="education-form" class="admin-form" onsubmit="window.aboutManager.saveEduItem(event)">
+                <input type="hidden" id="edu-index">
+
+                <div class="form-group">
+                    <label for="edu-degree">Degree / Course Name</label>
+                    <input type="text" id="edu-degree" placeholder="e.g. B.Tech in Computer Science" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edu-institution">Institution / University</label>
+                    <input type="text" id="edu-institution" placeholder="e.g. Mumbai University" required>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="edu-year">Year / Duration</label>
+                        <input type="text" id="edu-year" placeholder="e.g. 2023 – Present or Completed" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edu-icon">Icon Class (FontAwesome)</label>
+                        <select id="edu-icon" required>
+                            <option value="fas fa-graduation-cap">🎓 Graduation Cap</option>
+                            <option value="fas fa-university">🏛️ University / College</option>
+                            <option value="fas fa-scroll">📜 Scroll Certificate</option>
+                            <option value="fas fa-shield-alt">🛡️ Shield (Security)</option>
+                            <option value="fas fa-laptop-code">💻 Code / Computer</option>
+                            <option value="fas fa-book">📖 Book</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-plus"></i> Save Education Item
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Certification Modal -->
+    <div id="certification-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="certification-modal-title">Add Certification Item</h3>
+                <button class="modal-close" onclick="window.aboutManager.closeCertModal()">&times;</button>
+            </div>
+            <form id="certification-form" class="admin-form" onsubmit="window.aboutManager.saveCertItem(event)">
+                <input type="hidden" id="cert-index">
+
+                <div class="form-group">
+                    <label for="cert-name">Certification / Credential Name</label>
+                    <input type="text" id="cert-name" placeholder="e.g. AWS Cloud Practitioner" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cert-issuer">Issuer / Organization</label>
+                    <input type="text" id="cert-issuer" placeholder="e.g. Amazon Web Services" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cert-icon">Icon / Emoji</label>
+                    <select id="cert-icon" required>
+                        <option value="🛡️">🛡️ Shield</option>
+                        <option value="☁️">☁️ Cloud</option>
+                        <option value="💻">💻 Code / Dev</option>
+                        <option value="📜">📜 Scroll</option>
+                        <option value="🏅">🏅 Medal</option>
+                        <option value="⚡">⚡ Lightning Bolt</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-plus"></i> Save Certification Item
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
 
     <script src="/admin/js/auth.js"></script>
     <script src="/admin/js/projects.js"></script>

@@ -1,18 +1,26 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Skill = require('../models/Skill');
 const auth = require('../middleware/auth');
+
+const fallbackDb = require('../utils/fallbackDb');
 
 // @route   GET /api/skills
 // @desc    Get all skills
 // @access  Public
 router.get('/', async (req, res) => {
     try {
-        const skills = await Skill.find().sort({ category: 1, order: 1 });
+        let skills = [];
+        if (mongoose.connection.readyState === 1) {
+            skills = await Skill.find().sort({ category: 1, order: 1 });
+        } else {
+            skills = fallbackDb.getSkills();
+        }
         res.json(skills);
     } catch (error) {
-        console.error('Get skills error:', error);
-        res.status(500).json({ error: 'Server error fetching skills' });
+        console.warn('Database offline or query failed. Serving fallback skills content:', error.message);
+        res.json(fallbackDb.getSkills());
     }
 });
 
@@ -22,6 +30,13 @@ router.get('/', async (req, res) => {
 router.post('/', auth, async (req, res) => {
     try {
         const { name, category, proficiency, icon, order } = req.body;
+
+        // Add to local fallback database
+        const localSkill = fallbackDb.addSkill({ name, category, proficiency, icon, order });
+
+        if (mongoose.connection.readyState !== 1) {
+            return res.status(201).json({ message: 'Skill created successfully (offline backup mode)', skill: localSkill });
+        }
 
         const skill = new Skill({
             name,
@@ -46,6 +61,16 @@ router.put('/:id', auth, async (req, res) => {
     try {
         const { name, category, proficiency, icon, order } = req.body;
 
+        // Update in local fallback database
+        const localSkill = fallbackDb.updateSkill(req.params.id, { name, category, proficiency, icon, order });
+
+        if (mongoose.connection.readyState !== 1) {
+            if (!localSkill) {
+                return res.status(404).json({ error: 'Skill not found in local backup' });
+            }
+            return res.json({ message: 'Skill updated successfully (offline backup mode)', skill: localSkill });
+        }
+
         const skill = await Skill.findByIdAndUpdate(
             req.params.id,
             { name, category, proficiency, icon, order },
@@ -68,6 +93,13 @@ router.put('/:id', auth, async (req, res) => {
 // @access  Protected
 router.delete('/:id', auth, async (req, res) => {
     try {
+        // Delete from local fallback database
+        fallbackDb.deleteSkill(req.params.id);
+
+        if (mongoose.connection.readyState !== 1) {
+            return res.json({ message: 'Skill deleted successfully (offline backup mode)' });
+        }
+
         const skill = await Skill.findByIdAndDelete(req.params.id);
 
         if (!skill) {
