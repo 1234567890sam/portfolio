@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://msaadshaikh.github.io/sitemap.xml
+Sitemap: https://msaadshaikh.vercel.app/sitemap.xml
