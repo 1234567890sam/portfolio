@@ -21,18 +21,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.set('bufferCommands', false);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {
-    tls: true,
-    tlsAllowInvalidCertificates: false,
-    tlsAllowInvalidHostnames: false,
-    serverSelectionTimeoutMS: 5000,
-    bufferCommands: false // Fail fast rather than buffering queries when offline
-})
-    .then(() => console.log('✅ MongoDB Connected Successfully'))
-    .catch(err => {
-        console.error('❌ MongoDB Connection Error:', err.message);
-        console.warn('⚠️  Running without database – static files will still be served.');
-    });
+if (process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI, {
+        tls: true,
+        tlsAllowInvalidCertificates: false,
+        tlsAllowInvalidHostnames: false,
+        serverSelectionTimeoutMS: 5000,
+        bufferCommands: false // Fail fast rather than buffering queries when offline
+    })
+        .then(() => console.log('✅ MongoDB Connected Successfully'))
+        .catch(err => {
+            console.error('❌ MongoDB Connection Error:', err.message);
+            console.warn('⚠️  Running without database – serving local fallback data.');
+        });
+} else {
+    console.warn('⚠️  MONGODB_URI environment variable is missing.');
+    console.warn('⚠️  Running without database – serving local fallback data.');
+}
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
