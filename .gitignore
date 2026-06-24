@@ -7,6 +7,7 @@ node_modules/
 # Uploads
 public/uploads/*
 !public/uploads/.gitkeep
+!public/uploads/default-project.jpg
 
 # Logs
 *.log
