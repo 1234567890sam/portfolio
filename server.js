@@ -36,12 +36,18 @@ if (process.env.MONGODB_URI) {
     console.warn('⚠️  Running without database – serving local fallback data.');
 }
 
+// Database connection assurance middleware for serverless/cold starts
+app.use('/api', require('./middleware/db'));
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/skills', require('./routes/skills'));
 app.use('/api/about', require('./routes/about'));
 app.use('/api/upload', require('./routes/upload'));
+
+// Favicon route to handle browser requests and avoid 404 console errors
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Serve index.html for root route
 app.get('/', (req, res) => {
@@ -74,3 +80,5 @@ app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
     console.log(`📱 Admin panel: http://localhost:${PORT}/admin`);
 });
+
+module.exports = app;
