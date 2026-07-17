@@ -21,7 +21,7 @@ const updateAdmin = async () => {
         // New strong credentials
         const newUsername = 'msaadshaikh';
         const newEmail = 'work.msaad@gmail.com';
-        const newPassword = 'Saad@Portfolio2024!'; // Strong password
+        const newPassword = 'SAAD@8446'; // Strong password
 
         // Find existing admin
         const admin = await Admin.findOne();

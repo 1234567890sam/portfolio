@@ -6,6 +6,9 @@ const ensureDbConnected = async (req, res, next) => {
         try {
             if (process.env.MONGODB_URI) {
                 await mongoose.connect(process.env.MONGODB_URI, {
+                    tls: true,
+                    tlsAllowInvalidCertificates: false,
+                    tlsAllowInvalidHostnames: false,
                     serverSelectionTimeoutMS: 5000,
                     bufferCommands: false
                 });

@@ -23,6 +23,9 @@ mongoose.set('bufferCommands', false);
 // MongoDB Connection
 if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI, {
+        tls: true,
+        tlsAllowInvalidCertificates: false,
+        tlsAllowInvalidHostnames: false,
         serverSelectionTimeoutMS: 5000,
         bufferCommands: false
     })
