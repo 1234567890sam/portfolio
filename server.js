@@ -49,8 +49,10 @@ app.use('/api/skills', require('./routes/skills'));
 app.use('/api/about', require('./routes/about'));
 app.use('/api/upload', require('./routes/upload'));
 
-// Favicon route to handle browser requests and avoid 404 console errors
-app.get('/favicon.ico', (req, res) => res.status(204).end());
+// Favicon route to handle browser requests and serve the custom favicon
+app.get('/favicon.ico', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'favicon.png'));
+});
 
 // Serve index.html for root route
 app.get('/', (req, res) => {

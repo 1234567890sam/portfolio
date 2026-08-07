@@ -26,10 +26,16 @@ async function loadAboutContent() {
     const bioEl = document.getElementById('bio-text');
     if (bioEl && data.bio) bioEl.textContent = data.bio;
 
-    // Profile image (hero + about)
+    // Profile image (hero)
     if (data.profileImage) {
-      const imgs = document.querySelectorAll('#about-profile-img, .profile-avatar-wrap img');
-      imgs.forEach(img => { img.src = data.profileImage; });
+      const heroImg = document.querySelector('.profile-avatar-wrap img');
+      if (heroImg) heroImg.src = data.profileImage;
+    }
+
+    // Secondary Profile image (about)
+    const aboutImg = document.querySelector('#about-profile-img');
+    if (aboutImg) {
+      aboutImg.src = data.profileImageSecondary || '/uploads/profile_secondary.jpg';
     }
 
     // Social links (hero + about panel)
@@ -366,11 +372,42 @@ async function loadProjects() {
   }
 }
 
-/* ══════════════════════════════════════════════
-   BOOT
-   ══════════════════════════════════════════════ */
+/* ── Boot Initializer & Splash Screen Handler ── */
 document.addEventListener('DOMContentLoaded', () => {
-  loadAboutContent();
-  loadSkills();
-  loadProjects();
+  const startTime = Date.now();
+  let loaded = false;
+
+  const hideSplash = () => {
+    if (loaded) return;
+    loaded = true;
+    
+    const elapsedTime = Date.now() - startTime;
+    const delay = Math.max(0, 1000 - elapsedTime); // Ensure min 1s display for visual transition
+
+    setTimeout(() => {
+      const splash = document.getElementById('splash-screen');
+      if (splash) {
+        splash.classList.add('fade-out');
+        document.body.classList.remove('loading');
+        setTimeout(() => {
+          splash.remove();
+        }, 600); // Match CSS fade duration
+      }
+    }, delay);
+  };
+
+  // Safe fallback timeout (max 5 seconds loading state)
+  const fallbackTimeout = setTimeout(hideSplash, 5000);
+
+  // Run all fetches in parallel
+  Promise.all([
+    loadAboutContent(),
+    loadSkills(),
+    loadProjects()
+  ])
+    .catch(err => console.warn('Dynamic content boot error:', err))
+    .finally(() => {
+      clearTimeout(fallbackTimeout);
+      hideSplash();
+    });
 });

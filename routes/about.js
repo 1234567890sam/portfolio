@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
 // @access  Protected
 router.put('/', auth, async (req, res) => {
     try {
-        const { bio, profileImage, socialLinks, resumeUrl, experience, education, certifications, stats } = req.body;
+        const { bio, profileImage, profileImageSecondary, socialLinks, resumeUrl, experience, education, certifications, stats } = req.body;
 
         // Always sync with fallback database backup
         fallbackDb.saveAbout(req.body);
@@ -54,10 +54,11 @@ router.put('/', auth, async (req, res) => {
         let about = await About.findOne();
 
         if (!about) {
-            about = new About({ bio, profileImage, socialLinks, resumeUrl, experience, education, certifications, stats });
+            about = new About({ bio, profileImage, profileImageSecondary, socialLinks, resumeUrl, experience, education, certifications, stats });
         } else {
             about.bio = bio !== undefined ? bio : about.bio;
             about.profileImage = profileImage !== undefined ? profileImage : about.profileImage;
+            about.profileImageSecondary = profileImageSecondary !== undefined ? profileImageSecondary : about.profileImageSecondary;
             about.socialLinks = socialLinks !== undefined ? socialLinks : about.socialLinks;
             about.resumeUrl = resumeUrl !== undefined ? resumeUrl : about.resumeUrl;
             about.experience = experience !== undefined ? experience : about.experience;

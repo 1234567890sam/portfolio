@@ -10,6 +10,10 @@ const aboutSchema = new mongoose.Schema({
         type: String,
         default: '/uploads/profile.jpg'
     },
+    profileImageSecondary: {
+        type: String,
+        default: '/uploads/profile_secondary.jpg'
+    },
     socialLinks: {
         github: { type: String, default: '' },
         linkedin: { type: String, default: '' },

@@ -7,13 +7,14 @@ const INITIAL_FALLBACK_DATA = {
     about: {
         bio: "Welcome to my portfolio! I'm M SAAD SHAIKH, a passionate developer creating amazing digital experiences.",
         profileImage: '/uploads/profile.jpg',
+        profileImageSecondary: '/uploads/profile_secondary.jpg',
         socialLinks: {
-            github: 'https://github.com',
-            linkedin: 'https://linkedin.com',
+            github: 'https://github.com/m-saad-shaikh/',
+            linkedin: 'https://in.linkedin.com/in/m-saad-shaikh-795814345',
             twitter: '',
-            email: 'msaadshaikh@example.com',
-            instagram: '',
-            whatsapp: ''
+            email: 'work.msaad@gmail.com',
+            instagram: 'https://www.instagram.com/m.saad.shaikh01/',
+            whatsapp: '+919423183735'
         },
         experience: {
             years: '3+',
@@ -21,9 +22,15 @@ const INITIAL_FALLBACK_DATA = {
         },
         education: [
             {
-                degree: 'Bachelor of Science in Computer Science',
+                degree: 'B.Tech in Information Technology',
                 institution: 'University',
-                year: '2022 - 2026',
+                year: '2026 - 2029',
+                icon: 'fas fa-graduation-cap'
+            },
+            {
+                degree: 'Diploma in Computer Engineering',
+                institution: 'MSBTE',
+                year: '2023 - 2026',
                 icon: 'fas fa-graduation-cap'
             }
         ],

@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="M Saad Shaikh | Full Stack Developer">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>⚡</text></svg>">
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <title>M Saad Shaikh | Full Stack Developer</title>
 
@@ -33,8 +33,12 @@
     "jobTitle": "Full Stack Developer",
     "url": "https://msaadshaikh.vercel.app",
     "sameAs": [
-      "https://github.com/msaadshaikh",
-      "https://linkedin.com/in/msaadshaikh"
+      "https://github.com/m-saad-shaikh/",
+      "https://in.linkedin.com/in/m-saad-shaikh-795814345"
+    ],
+    "image": [
+      "https://msaadshaikh.vercel.app/uploads/profile.jpg",
+      "https://msaadshaikh.vercel.app/uploads/profile_secondary.jpg"
     ],
     "description": "Official portfolio of M Saad Shaikh, a Full Stack Developer & Cybersecurity Enthusiast specializing in premium web experiences."
   }
@@ -55,7 +59,18 @@
   <link rel="stylesheet" href="/css/sections.css">
 </head>
 
-<body>
+<body class="loading">
+
+  <!-- ── SPLASH SCREEN ── -->
+  <div id="splash-screen" role="dialog" aria-modal="true" aria-label="Loading systems">
+    <div class="splash-inner">
+      <div class="splash-logo">M. SAAD SHAIKH</div>
+      <div class="splash-loader-wrap">
+        <div class="splash-loader"></div>
+      </div>
+      <div class="splash-status">INITIALIZING SYSTEMS...</div>
+    </div>
+  </div>
 
   <!-- ── FLOATING NAVBAR ── -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
@@ -80,16 +95,53 @@
     </div>
   </nav>
 
-  <!-- Mobile Nav -->
+  <!-- Mobile Nav Overlay -->
   <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
-      <i class="fas fa-times"></i>
-    </button>
-    <a href="#home" class="mobile-nav-link">Home</a>
-    <a href="#about" class="mobile-nav-link">About</a>
-    <a href="#skills" class="mobile-nav-link">Skills</a>
-    <a href="#projects" class="mobile-nav-link">Projects</a>
-    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <!-- Ambient background orbs -->
+    <div class="mobile-nav-orb orb-1" aria-hidden="true"></div>
+    <div class="mobile-nav-orb orb-2" aria-hidden="true"></div>
+    
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-logo">M. SAAD SHAIKH</span>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="mobile-nav-menu">
+      <a href="#home" class="mobile-nav-link">
+        <span class="link-num">01.</span>
+        <span class="link-text">Home</span>
+      </a>
+      <a href="#about" class="mobile-nav-link">
+        <span class="link-num">02.</span>
+        <span class="link-text">About</span>
+      </a>
+      <a href="#skills" class="mobile-nav-link">
+        <span class="link-num">03.</span>
+        <span class="link-text">Skills</span>
+      </a>
+      <a href="#projects" class="mobile-nav-link">
+        <span class="link-num">04.</span>
+        <span class="link-text">Projects</span>
+      </a>
+      <a href="#contact" class="mobile-nav-link">
+        <span class="link-num">05.</span>
+        <span class="link-text">Contact</span>
+      </a>
+    </nav>
+
+    <div class="mobile-nav-footer">
+      <span class="mobile-nav-available">
+        <span class="badge-dot"></span> Available for Freelance
+      </span>
+      <div class="mobile-nav-socials">
+        <a href="https://github.com/m-saad-shaikh/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://in.linkedin.com/in/m-saad-shaikh-795814345" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:work.msaad@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://wa.me/919423183735" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
   </div>
 
   <!-- ══════════════════════════════════════════════
@@ -141,11 +193,11 @@
 
         <div class="hero-socials">
           <span class="hero-socials-label">Find me on</span>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+          <a href="https://github.com/m-saad-shaikh/" target="_blank" rel="noopener noreferrer"
              class="hero-social-icon" id="hero-social-github" aria-label="GitHub">
             <i class="fab fa-github" aria-hidden="true"></i>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+          <a href="https://in.linkedin.com/in/m-saad-shaikh-795814345" target="_blank" rel="noopener noreferrer"
              class="hero-social-icon" id="hero-social-linkedin" aria-label="LinkedIn">
             <i class="fab fa-linkedin" aria-hidden="true"></i>
           </a>
@@ -153,7 +205,7 @@
              class="hero-social-icon" id="hero-social-email" aria-label="Email">
             <i class="fas fa-envelope" aria-hidden="true"></i>
           </a>
-          <a href="https://wa.me/9423183735" target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/919423183735" target="_blank" rel="noopener noreferrer"
              class="hero-social-icon" id="hero-social-whatsapp" aria-label="WhatsApp">
             <i class="fab fa-whatsapp" aria-hidden="true"></i>
           </a>
@@ -240,7 +292,7 @@
         <!-- BIO CARD (large) -->
         <div class="bento-card bento-bio">
           <div class="bio-image">
-            <img src="/uploads/profile.jpg" alt="M Saad Shaikh"
+            <img src="/uploads/profile_secondary.jpg" alt="M Saad Shaikh"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
                  id="about-profile-img">
             <div class="bio-initials" style="display:none">MS</div>
@@ -694,38 +746,38 @@
               <i class="fas fa-arrow-right contact-channel-arrow" aria-hidden="true"></i>
             </a>
 
-            <a href="https://wa.me/9423183735" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/919423183735" target="_blank" rel="noopener noreferrer"
                class="contact-channel" id="contact-whatsapp-btn" aria-label="Message on WhatsApp">
               <div class="contact-channel-icon icon-whatsapp">
                 <i class="fab fa-whatsapp" aria-hidden="true"></i>
               </div>
               <div class="contact-channel-info">
                 <span class="contact-channel-label">WhatsApp</span>
-                <span class="contact-channel-value">+91 9423 183 735</span>
+                <span class="contact-channel-value">+91 94231 83735</span>
               </div>
               <i class="fas fa-arrow-right contact-channel-arrow" aria-hidden="true"></i>
             </a>
 
-            <a href="https://linkedin.com/in/msaadshaikh" target="_blank" rel="noopener noreferrer"
+            <a href="https://in.linkedin.com/in/m-saad-shaikh-795814345" target="_blank" rel="noopener noreferrer"
                class="contact-channel" id="contact-linkedin-btn" aria-label="Connect on LinkedIn">
               <div class="contact-channel-icon icon-linkedin">
                 <i class="fab fa-linkedin" aria-hidden="true"></i>
               </div>
               <div class="contact-channel-info">
                 <span class="contact-channel-label">LinkedIn</span>
-                <span class="contact-channel-value">linkedin.com/in/msaadshaikh</span>
+                <span class="contact-channel-value">linkedin.com/in/m-saad-shaikh-795814345</span>
               </div>
               <i class="fas fa-arrow-right contact-channel-arrow" aria-hidden="true"></i>
             </a>
 
-            <a href="https://github.com/msaadshaikh" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/m-saad-shaikh/" target="_blank" rel="noopener noreferrer"
                class="contact-channel" id="contact-github-btn" aria-label="View GitHub profile">
               <div class="contact-channel-icon icon-github">
                 <i class="fab fa-github" aria-hidden="true"></i>
               </div>
               <div class="contact-channel-info">
                 <span class="contact-channel-label">GitHub</span>
-                <span class="contact-channel-value">github.com/msaadshaikh</span>
+                <span class="contact-channel-value">github.com/m-saad-shaikh</span>
               </div>
               <i class="fas fa-arrow-right contact-channel-arrow" aria-hidden="true"></i>
             </a>
@@ -738,18 +790,18 @@
           <p>Follow my journey and stay updated with my latest projects and insights.</p>
 
           <div class="contact-socials" id="contact-social-grid">
-            <a href="https://github.com/msaadshaikh" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/m-saad-shaikh/" target="_blank" rel="noopener noreferrer"
                class="contact-social-btn btn-gh" id="social-github-btn" aria-label="GitHub">
               <div class="contact-social-icon" style="background: rgba(255,255,255,0.06);">
                 <i class="fab fa-github" style="font-size: 1.1rem;" aria-hidden="true"></i>
               </div>
               <div>
                 <div class="contact-social-name">GitHub</div>
-                <div class="contact-social-handle">@msaadshaikh</div>
+                <div class="contact-social-handle">@m-saad-shaikh</div>
               </div>
             </a>
 
-            <a href="https://linkedin.com/in/msaadshaikh" target="_blank" rel="noopener noreferrer"
+            <a href="https://in.linkedin.com/in/m-saad-shaikh-795814345" target="_blank" rel="noopener noreferrer"
                class="contact-social-btn btn-li" id="social-linkedin-btn" aria-label="LinkedIn">
               <div class="contact-social-icon" style="background: rgba(10,102,194,0.15); color: #0a66c2;">
                 <i class="fab fa-linkedin" style="font-size: 1.1rem;" aria-hidden="true"></i>
@@ -767,18 +819,18 @@
               </div>
               <div>
                 <div class="contact-social-name">Twitter</div>
-                <div class="contact-social-handle">@msaadshaikh</div>
+                <div class="contact-social-handle">@m-saad-shaikh</div>
               </div>
             </a>
 
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.instagram.com/m.saad.shaikh01/" target="_blank" rel="noopener noreferrer"
                class="contact-social-btn btn-ig" id="social-instagram-btn" aria-label="Instagram">
               <div class="contact-social-icon" style="background: rgba(225,48,108,0.12); color: #e1306c;">
                 <i class="fab fa-instagram" style="font-size: 1.1rem;" aria-hidden="true"></i>
               </div>
               <div>
                 <div class="contact-social-name">Instagram</div>
-                <div class="contact-social-handle">@msaadshaikh</div>
+                <div class="contact-social-handle">@m.saad.shaikh01</div>
               </div>
             </a>
           </div>

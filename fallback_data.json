@@ -1,38 +1,40 @@
 {
     "about": {
-        "bio": "Welcome to my portfolio! I'm M SAAD SHAIKH, a passionate developer creating amazing digital experiences.",
+        "bio": "I design and build futuristic, high-performance web experiences\nwith a focus on security, speed, and stunning UI.\n",
         "profileImage": "/uploads/profile.jpg",
-        "resumeUrl": "",
+        "resumeUrl": "/uploads/1786115631628-35615075.pdf",
         "experience": {
-            "years": "3+",
+            "years": "2+",
             "label": "Years of building real-world projects"
         },
         "stats": {
-            "completed": "6+"
+            "completed": "15+"
         },
         "socialLinks": {
-            "github": "https://github.com",
-            "linkedin": "https://linkedin.com",
+            "github": "https://github.com/m-saad-shaikh/",
+            "linkedin": "https://in.linkedin.com/in/m-saad-shaikh-795814345",
             "twitter": "",
-            "instagram": "",
-            "email": "msaadshaikh@example.com",
-            "whatsapp": ""
+            "instagram": "https://www.instagram.com/m.saad.shaikh01/",
+            "email": "work.msaad@gmail.com",
+            "whatsapp": "+919423183735"
         },
         "education": [
             {
-                "degree": "Bachelor of Science in Computer Science",
+                "degree": "B.Tech in Information Technology",
                 "institution": "University",
-                "year": "2022 - 2026",
-                "icon": "fas fa-graduation-cap"
+                "year": "2026 - 2029",
+                "icon": "fas fa-graduation-cap",
+                "_id": "6a75eed90b7aa3fba33e9b0c"
+            },
+            {
+                "degree": "Diploma in Computer Engineering",
+                "institution": "MSBTE",
+                "year": "2023 - 2026",
+                "icon": "fas fa-graduation-cap",
+                "_id": "6a75eed90b7aa3fba33e9b0d"
             }
         ],
-        "certifications": [
-            {
-                "name": "Full Stack Web Development Certificate",
-                "issuer": "Udemy",
-                "icon": "fas fa-certificate"
-            }
-        ]
+        "certifications": []
     },
     "skills": [
         {

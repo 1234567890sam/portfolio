@@ -224,6 +224,7 @@ function initGSAP() {
    7. 3D CARD TILT EFFECT (Performance Optimized)
    ══════════════════════════════════════════════ */
 (function initTilt() {
+  if (window.innerWidth < 768) return;
   const cards = $$('.bento-card, .project-card, .skill-category-card, .contact-panel, .glass-card');
 
   cards.forEach(card => {
@@ -261,6 +262,7 @@ function initGSAP() {
    8. MAGNETIC BUTTONS (Performance Optimized)
    ══════════════════════════════════════════════ */
 (function initMagneticButtons() {
+  if (window.innerWidth < 768) return;
   const btns = $$('.btn-primary, .btn-ghost');
 
   btns.forEach(btn => {
@@ -393,13 +395,15 @@ function initGSAP() {
     H = canvas.height = window.innerHeight;
   }
 
-  function createParticles(n = 50) {
+  function createParticles() {
+    const isMobile = window.innerWidth < 768;
+    const n = isMobile ? 15 : 50;
     return Array.from({ length: n }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
       r: Math.random() * 1.5 + 0.3,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
+      vx: (Math.random() - 0.5) * (isMobile ? 0.15 : 0.25),
+      vy: (Math.random() - 0.5) * (isMobile ? 0.15 : 0.25),
       alpha: Math.random() * 0.4 + 0.1
     }));
   }
@@ -427,8 +431,9 @@ function initGSAP() {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
+        const distSq = dx * dx + dy * dy;
+        if (distSq < 14400) { // 120 * 120 = 14400
+          const dist = Math.sqrt(distSq);
           ctx.beginPath();
           ctx.strokeStyle = `rgba(0, 212, 255, ${0.06 * (1 - dist / 120)})`;
           ctx.lineWidth = 0.5;
