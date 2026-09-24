@@ -43,6 +43,26 @@ const aboutSchema = new mongoose.Schema({
     }],
     stats: {
         completed: { type: String, default: '15+' }
+    },
+    currentFocus: {
+        type: String,
+        default: 'Zero-Trust Architecture & Rust'
+    },
+    availabilityStatus: {
+        type: String,
+        default: 'Available'
+    },
+    availabilityLabel: {
+        type: String,
+        default: 'Open to Work'
+    },
+    location: {
+        type: String,
+        default: 'Pune, IN'
+    },
+    replyTime: {
+        type: String,
+        default: '< 12h'
     }
 }, {
     timestamps: true

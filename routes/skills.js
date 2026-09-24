@@ -29,10 +29,10 @@ router.get('/', async (req, res) => {
 // @access  Protected
 router.post('/', auth, async (req, res) => {
     try {
-        const { name, category, proficiency, icon, order } = req.body;
+        const { name, category, proficiency, tier, badge, icon, order } = req.body;
 
         // Add to local fallback database
-        const localSkill = fallbackDb.addSkill({ name, category, proficiency, icon, order });
+        const localSkill = fallbackDb.addSkill({ name, category, proficiency, tier, badge, icon, order });
 
         if (mongoose.connection.readyState !== 1) {
             return res.status(201).json({ message: 'Skill created successfully (offline backup mode)', skill: localSkill });
@@ -42,6 +42,8 @@ router.post('/', auth, async (req, res) => {
             name,
             category,
             proficiency,
+            tier,
+            badge,
             icon,
             order
         });
@@ -59,10 +61,10 @@ router.post('/', auth, async (req, res) => {
 // @access  Protected
 router.put('/:id', auth, async (req, res) => {
     try {
-        const { name, category, proficiency, icon, order } = req.body;
+        const { name, category, proficiency, tier, badge, icon, order } = req.body;
 
         // Update in local fallback database
-        const localSkill = fallbackDb.updateSkill(req.params.id, { name, category, proficiency, icon, order });
+        const localSkill = fallbackDb.updateSkill(req.params.id, { name, category, proficiency, tier, badge, icon, order });
 
         if (mongoose.connection.readyState !== 1) {
             if (!localSkill) {
@@ -73,7 +75,7 @@ router.put('/:id', auth, async (req, res) => {
 
         const skill = await Skill.findByIdAndUpdate(
             req.params.id,
-            { name, category, proficiency, icon, order },
+            { name, category, proficiency, tier, badge, icon, order },
             { new: true, runValidators: true }
         );
 

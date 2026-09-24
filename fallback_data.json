@@ -21,10 +21,9 @@
         "education": [
             {
                 "degree": "B.Tech in Information Technology",
-                "institution": "University",
+                "institution": "Walchand Insitude of  Technology",
                 "year": "2026 - 2029",
-                "icon": "fas fa-graduation-cap",
-                "_id": "6a75eed90b7aa3fba33e9b0c"
+                "icon": "fas fa-graduation-cap"
             },
             {
                 "degree": "Diploma in Computer Engineering",
@@ -103,61 +102,102 @@
         },
         {
             "_id": "fallback-skill-9",
-            "name": "Git & GitHub",
+            "name": "Git & CI/CD",
             "category": "Tools",
             "proficiency": 90,
             "icon": "🛠️",
             "order": 1
+        },
+        {
+            "_id": "fallback-skill-10",
+            "name": "Penetration Testing",
+            "category": "Cybersecurity",
+            "proficiency": 85,
+            "icon": "🛡️",
+            "order": 1
+        },
+        {
+            "_id": "fallback-skill-11",
+            "name": "OWASP Top 10",
+            "category": "Cybersecurity",
+            "proficiency": 88,
+            "icon": "🔒",
+            "order": 2
+        },
+        {
+            "_id": "fallback-skill-12",
+            "name": "Zero-Knowledge Encryption",
+            "category": "Cybersecurity",
+            "proficiency": 82,
+            "icon": "🔐",
+            "order": 3
         }
     ],
     "projects": [
         {
             "_id": "fallback-proj-1",
-            "title": "Premium E-Commerce Experience",
-            "description": "A dark futuristic storefront with Stripe integrations, real-time inventory management, and custom glassmorphic aesthetics.",
+            "title": "Bespoke Developer Platform",
+            "description": "A high-performance digital identity platform engineered with native GPU micro-interactions, an interactive CLI sandbox, and MongoDB architecture.",
             "image": "/uploads/default-project.jpg",
             "techStack": [
-                "React",
                 "Node.js",
                 "MongoDB",
-                "Stripe"
+                "Express",
+                "JavaScript",
+                "CSS3"
             ],
             "projectUrl": "https://github.com",
-            "githubUrl": "https://github.com",
+            "githubUrl": "https://github.com/m-saad-shaikh/",
             "featured": true,
             "order": 1
         },
         {
             "_id": "fallback-proj-2",
-            "title": "Futuristic Portfolio Platform",
-            "description": "An ultra-premium, interactive developer portfolio featuring GPU-accelerated cursor effects, bento grids, and high-performance layout rendering.",
+            "title": "SecureVault Password Manager",
+            "description": "Zero-knowledge end-to-end encrypted secret vault with client-side key derivation, AES-256 GCM authenticated encryption, and biometric auth.",
             "image": "/uploads/default-project.jpg",
             "techStack": [
-                "HTML5",
-                "Vanilla CSS",
-                "JavaScript",
-                "GSAP"
+                "React",
+                "Node.js",
+                "AES-256",
+                "WebCrypto"
             ],
             "projectUrl": "https://github.com",
-            "githubUrl": "https://github.com",
+            "githubUrl": "https://github.com/m-saad-shaikh/",
             "featured": false,
             "order": 2
         },
         {
             "_id": "fallback-proj-3",
-            "title": "AI Prompt Engineering Tool",
-            "description": "A dashboard application for testing and evaluating LLM outputs with semantic caching and robust security headers.",
+            "title": "NetScan Pro Vulnerability Engine",
+            "description": "Asynchronous network vulnerability scanner with multi-subnet port mapping, CVE risk classification, and automated reporting.",
             "image": "/uploads/default-project.jpg",
             "techStack": [
-                "Node.js",
-                "Express",
-                "OpenAI API",
-                "TailwindCSS"
+                "Python",
+                "Nmap",
+                "FastAPI",
+                "Docker"
             ],
             "projectUrl": "https://github.com",
-            "githubUrl": "https://github.com",
+            "githubUrl": "https://github.com/m-saad-shaikh/",
             "featured": false,
             "order": 3
+        },
+        {
+            "_id": "fallback-proj-4",
+            "title": "ShopFlow Commerce",
+            "description": "Headless storefront with Stripe integration, real-time inventory synchronization, and custom glassmorphic aesthetics.",
+            "image": "/uploads/default-project.jpg",
+            "techStack": [
+                "Next.js",
+                "Node.js",
+                "MongoDB",
+                "Stripe"
+            ],
+            "projectUrl": "https://github.com",
+            "githubUrl": "https://github.com/m-saad-shaikh/",
+            "featured": false,
+            "order": 4
         }
     ]
 }

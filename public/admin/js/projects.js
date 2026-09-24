@@ -57,6 +57,9 @@
             document.getElementById('project-modal-title').textContent = 'Add Project';
             document.getElementById('project-form').reset();
             document.getElementById('project-id').value = '';
+            document.getElementById('project-category').value = 'Full Stack';
+            document.getElementById('project-metrics').value = '';
+            document.getElementById('project-outcome').value = '';
             document.getElementById('project-modal').classList.add('show');
         },
 
@@ -69,9 +72,12 @@
                 document.getElementById('project-modal-title').textContent = 'Edit Project';
                 document.getElementById('project-id').value = project._id;
                 document.getElementById('project-title').value = project.title;
+                document.getElementById('project-category').value = project.category || 'Full Stack';
+                document.getElementById('project-metrics').value = project.metrics || '';
+                document.getElementById('project-outcome').value = project.outcome || '';
                 document.getElementById('project-description').value = project.description;
                 document.getElementById('project-image').value = project.image;
-                document.getElementById('project-tech').value = project.techStack.join(', ');
+                document.getElementById('project-tech').value = (project.techStack || []).join(', ');
                 document.getElementById('project-url').value = project.projectUrl || '';
                 document.getElementById('project-github').value = project.githubUrl || '';
 
@@ -119,9 +125,12 @@
                 const projectId = document.getElementById('project-id').value;
                 const projectData = {
                     title: document.getElementById('project-title').value,
+                    category: document.getElementById('project-category').value,
+                    metrics: document.getElementById('project-metrics').value,
+                    outcome: document.getElementById('project-outcome').value,
                     description: document.getElementById('project-description').value,
                     image: document.getElementById('project-image').value,
-                    techStack: document.getElementById('project-tech').value.split(',').map(t => t.trim()),
+                    techStack: document.getElementById('project-tech').value.split(',').map(t => t.trim()).filter(Boolean),
                     projectUrl: document.getElementById('project-url').value,
                     githubUrl: document.getElementById('project-github').value
                 };

@@ -222,6 +222,19 @@
                 document.getElementById('exp-label').value = about.experience?.label || '';
                 document.getElementById('stats-completed').value = about.stats?.completed || '';
 
+                // Live Telemetry
+                const currentFocusEl = document.getElementById('current-focus');
+                if (currentFocusEl) currentFocusEl.value = about.currentFocus || 'Zero-Trust Architecture & Rust';
+
+                const replyTimeEl = document.getElementById('reply-time');
+                if (replyTimeEl) replyTimeEl.value = about.replyTime || '< 12h';
+
+                const availLabelEl = document.getElementById('availability-label');
+                if (availLabelEl) availLabelEl.value = about.availabilityLabel || 'Open to Work';
+
+                const locationEl = document.getElementById('location-text');
+                if (locationEl) locationEl.value = about.location || 'Pune, IN';
+
                 // Social Links
                 document.getElementById('github').value = about.socialLinks?.github || '';
                 document.getElementById('linkedin').value = about.socialLinks?.linkedin || '';
@@ -382,6 +395,10 @@
                     stats: {
                         completed: document.getElementById('stats-completed').value
                     },
+                    currentFocus: document.getElementById('current-focus')?.value || 'Zero-Trust Architecture & Rust',
+                    replyTime: document.getElementById('reply-time')?.value || '< 12h',
+                    availabilityLabel: document.getElementById('availability-label')?.value || 'Open to Work',
+                    location: document.getElementById('location-text')?.value || 'Pune, IN',
                     socialLinks: {
                         github: document.getElementById('github').value,
                         linkedin: document.getElementById('linkedin').value,

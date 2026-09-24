@@ -9,7 +9,7 @@ const skillSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        enum: ['Frontend', 'Backend', 'Database', 'DevOps', 'Tools', 'Other'],
+        enum: ['Frontend', 'Backend', 'Database', 'DevOps', 'Tools', 'Cybersecurity', 'Cloud', 'Mobile', 'AI', 'Other'],
         default: 'Other'
     },
     proficiency: {
@@ -17,7 +17,17 @@ const skillSchema = new mongoose.Schema({
         required: true,
         min: 0,
         max: 100,
-        default: 50
+        default: 80
+    },
+    tier: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    badge: {
+        type: String,
+        trim: true,
+        default: ''
     },
     icon: {
         type: String,

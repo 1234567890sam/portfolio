@@ -14,6 +14,21 @@ const projectSchema = new mongoose.Schema({
         type: String,
         default: '/uploads/default-project.jpg'
     },
+    category: {
+        type: String,
+        trim: true,
+        default: 'Full Stack'
+    },
+    metrics: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    outcome: {
+        type: String,
+        trim: true,
+        default: ''
+    },
     techStack: [{
         type: String,
         trim: true

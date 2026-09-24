@@ -53,10 +53,10 @@ router.get('/:id', async (req, res) => {
 // @access  Protected
 router.post('/', auth, async (req, res) => {
     try {
-        const { title, description, image, techStack, projectUrl, githubUrl, featured, order } = req.body;
+        const { title, description, image, category, metrics, outcome, techStack, projectUrl, githubUrl, featured, order } = req.body;
 
         // Add to local fallback database
-        const localProj = fallbackDb.addProject({ title, description, image, techStack, projectUrl, githubUrl, featured, order });
+        const localProj = fallbackDb.addProject({ title, description, image, category, metrics, outcome, techStack, projectUrl, githubUrl, featured, order });
 
         if (mongoose.connection.readyState !== 1) {
             return res.status(201).json({ message: 'Project created successfully (offline backup mode)', project: localProj });
@@ -66,6 +66,9 @@ router.post('/', auth, async (req, res) => {
             title,
             description,
             image,
+            category,
+            metrics,
+            outcome,
             techStack,
             projectUrl,
             githubUrl,
@@ -86,10 +89,10 @@ router.post('/', auth, async (req, res) => {
 // @access  Protected
 router.put('/:id', auth, async (req, res) => {
     try {
-        const { title, description, image, techStack, projectUrl, githubUrl, featured, order } = req.body;
+        const { title, description, image, category, metrics, outcome, techStack, projectUrl, githubUrl, featured, order } = req.body;
 
         // Update in local fallback database
-        const localProj = fallbackDb.updateProject(req.params.id, { title, description, image, techStack, projectUrl, githubUrl, featured, order });
+        const localProj = fallbackDb.updateProject(req.params.id, { title, description, image, category, metrics, outcome, techStack, projectUrl, githubUrl, featured, order });
 
         if (mongoose.connection.readyState !== 1) {
             if (!localProj) {
@@ -100,7 +103,7 @@ router.put('/:id', auth, async (req, res) => {
 
         const project = await Project.findByIdAndUpdate(
             req.params.id,
-            { title, description, image, techStack, projectUrl, githubUrl, featured, order },
+            { title, description, image, category, metrics, outcome, techStack, projectUrl, githubUrl, featured, order },
             { new: true, runValidators: true }
         );
 

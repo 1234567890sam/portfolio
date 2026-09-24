@@ -59,6 +59,7 @@
             document.getElementById('skill-modal-title').textContent = 'Add Skill';
             document.getElementById('skill-form').reset();
             document.getElementById('skill-id').value = '';
+            document.getElementById('skill-badge').value = '';
             document.getElementById('skill-modal').classList.add('show');
         },
 
@@ -78,7 +79,8 @@
                 document.getElementById('skill-id').value = skill._id;
                 document.getElementById('skill-name').value = skill.name;
                 document.getElementById('skill-category').value = skill.category;
-                document.getElementById('skill-proficiency').value = skill.proficiency;
+                document.getElementById('skill-badge').value = skill.badge || '';
+                document.getElementById('skill-proficiency').value = skill.proficiency || 80;
                 document.getElementById('skill-icon').value = skill.icon || '';
 
                 document.getElementById('skill-modal').classList.add('show');
@@ -126,7 +128,8 @@
                 const skillData = {
                     name: document.getElementById('skill-name').value,
                     category: document.getElementById('skill-category').value,
-                    proficiency: parseInt(document.getElementById('skill-proficiency').value),
+                    badge: document.getElementById('skill-badge').value,
+                    proficiency: parseInt(document.getElementById('skill-proficiency').value) || 80,
                     icon: document.getElementById('skill-icon').value
                 };
 

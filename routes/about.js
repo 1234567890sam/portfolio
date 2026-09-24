@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
 // @access  Protected
 router.put('/', auth, async (req, res) => {
     try {
-        const { bio, profileImage, profileImageSecondary, socialLinks, resumeUrl, experience, education, certifications, stats } = req.body;
+        const { bio, profileImage, profileImageSecondary, socialLinks, resumeUrl, experience, education, certifications, stats, currentFocus, availabilityStatus, availabilityLabel, location, replyTime } = req.body;
 
         // Always sync with fallback database backup
         fallbackDb.saveAbout(req.body);
@@ -54,7 +54,7 @@ router.put('/', auth, async (req, res) => {
         let about = await About.findOne();
 
         if (!about) {
-            about = new About({ bio, profileImage, profileImageSecondary, socialLinks, resumeUrl, experience, education, certifications, stats });
+            about = new About({ bio, profileImage, profileImageSecondary, socialLinks, resumeUrl, experience, education, certifications, stats, currentFocus, availabilityStatus, availabilityLabel, location, replyTime });
         } else {
             about.bio = bio !== undefined ? bio : about.bio;
             about.profileImage = profileImage !== undefined ? profileImage : about.profileImage;
@@ -65,6 +65,11 @@ router.put('/', auth, async (req, res) => {
             about.education = education !== undefined ? education : about.education;
             about.certifications = certifications !== undefined ? certifications : about.certifications;
             about.stats = stats !== undefined ? stats : about.stats;
+            about.currentFocus = currentFocus !== undefined ? currentFocus : about.currentFocus;
+            about.availabilityStatus = availabilityStatus !== undefined ? availabilityStatus : about.availabilityStatus;
+            about.availabilityLabel = availabilityLabel !== undefined ? availabilityLabel : about.availabilityLabel;
+            about.location = location !== undefined ? location : about.location;
+            about.replyTime = replyTime !== undefined ? replyTime : about.replyTime;
         }
 
         await about.save();
