@@ -8,6 +8,8 @@ node_modules/
 public/uploads/*
 !public/uploads/.gitkeep
 !public/uploads/default-project.jpg
+!public/uploads/profile.jpg
+!public/uploads/profile_secondary.jpg
 
 # Logs
 *.log
