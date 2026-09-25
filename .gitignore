@@ -10,6 +10,8 @@ public/uploads/*
 !public/uploads/default-project.jpg
 !public/uploads/profile.jpg
 !public/uploads/profile_secondary.jpg
+!public/uploads/m-saad-shaikh.jpg
+!public/uploads/m-saad-shaikh-about.jpg
 
 # Logs
 *.log
